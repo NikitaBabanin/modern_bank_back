@@ -1,23 +1,23 @@
 version: '3.9'
 services:
-  nest-api:
-    container_name: nest-api
-    build:
-      context: .
-      dockerfile: Dockerfile
-    env_file:
-      - .env
-    ports:
-      - 9229:9229
-    depends_on:
-      - postgres
-      
+#  nest-api:
+#    container_name: nest-api
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    env_file:
+#      - .env
+#    ports:
+#      - 9229:9229
+#    depends_on:
+#      - postgres
+
   postgres:
     image: postgres
-    container_name: postgres
+    container_name: postgres_modern
     restart: always
     ports:
-      - 5432:5432
+      - 4948:4948
     env_file:
       - .env
     volumes:
@@ -25,5 +25,5 @@ services:
 
 volumes:
   postgres:
-    name: nest-db
+    name: modern_db
 
